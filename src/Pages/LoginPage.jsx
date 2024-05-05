@@ -21,7 +21,7 @@
         ...prevCredentials,
         [name]: value,
       }));
-      // Reset error when user types in input field
+
       setErrors((prevErrors) => ({
         ...prevErrors,
         [name]: '',
@@ -31,7 +31,7 @@
     const handleSubmit = (e) => {
       e.preventDefault();
 
-      // Validate form fields
+
       let valid = true;
       const newErrors = {};
 
@@ -50,7 +50,7 @@
         return;
       }
 
-      // Call login function if form is valid
+
       login(credentials,remember);
     };
 

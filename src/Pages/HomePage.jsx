@@ -37,7 +37,6 @@ const HomePage = () => {
               <p className="text-center text-lg font-medium text-gray-900">User Details:</p>
               <p className="text-center">Name: {user?.name}</p>
               <p className="text-center">Email: {user?.email}</p>
-              {/* Add more user details as needed */}
             </div>
           )}
         </div>

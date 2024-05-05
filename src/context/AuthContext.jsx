@@ -1,4 +1,3 @@
-// AuthContext.js
 import React, { createContext, useContext, useEffect, useReducer } from 'react';
 import axios from 'axios';
 
@@ -35,12 +34,11 @@ export const AuthProvider = ({ children }) => {
     console.log(rememberMe)
     try {
       dispatch({ type: 'SET_LOADING', payload: true });
-      // Perform login API call
+
       const response = await axios.post('http://localhost:3000/api/users/login', credentials);
-      // Assuming the API returns a token upon successful login
+
       dispatch({ type: 'SET_TOKEN', payload: response.data.token });
 
-      // Store token based on rememberMe preference
       if (rememberMe) {
         localStorage.setItem('authToken', response.data.token);
       } else {
@@ -57,9 +55,9 @@ export const AuthProvider = ({ children }) => {
   const signup = async (userData) => {
     try {
       dispatch({ type: 'SET_LOADING', payload: true });
-      // Perform signup API call
+
       await axios.post('http://localhost:3000/api/users/signup', userData);
-      // Signup successful
+
       dispatch({ type: 'SIGNUP_SUCCESS' });
     } catch (error) {
       console.log('Error signing up:', error);
@@ -76,7 +74,7 @@ export const AuthProvider = ({ children }) => {
   };
 
   useEffect(() => {
-    // Check for stored token on component mount
+
     const storedToken = localStorage.getItem('authToken') || sessionStorage.getItem('authToken');
     if (storedToken) {
       dispatch({ type: 'SET_TOKEN', payload: storedToken });

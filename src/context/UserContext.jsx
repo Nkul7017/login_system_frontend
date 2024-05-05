@@ -28,7 +28,7 @@ export const UserProvider = ({ children }) => {
   useEffect(() => {
     const fetchUserDetails = async () => {
       try {
-        // Perform API call to fetch user details
+
         const response = await axios.get('http://localhost:3000/api/users/fetchuser', {
           headers: {
             Authorization: `Bearer ${localStorage.getItem('authToken')}`,
